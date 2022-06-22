@@ -2,6 +2,9 @@
 
 require 'rubygems'
 require 'commander/import'
+require_relative '../lib/newsconverter'
+
+include Newsconverter
 
 program :name, 'news-converter'
 program :version, '0.0.1'
@@ -13,7 +16,7 @@ command :convert do |c|
   c.option '--input STRING', String, 'input target'
   c.option '--output STRING', String, 'output file'
   c.action do |args, options|
-    say 'converting...'
+    Newsconverter.run(args, options)
   end
 end
 
