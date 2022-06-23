@@ -3,7 +3,7 @@
 module Loaders
   class FileLoader
     def self.load(path)
-      pp 'loading'
+      pp path
     end
   end
 end
