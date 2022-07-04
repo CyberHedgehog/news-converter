@@ -4,8 +4,6 @@ require 'rubygems'
 require 'commander/import'
 require 'newsconverter'
 
-include Newsconverter
-
 program :name, 'news-converter'
 program :version, '0.0.1'
 program :description, 'Parsig news'
@@ -15,8 +13,10 @@ command :convert do |c|
   c.description = 'Description'
   c.option '--input STRING', String, 'input target'
   c.option '--output STRING', String, 'output file'
+  c.option '--format STRING', String, 'output format'
   c.action do |args, options|
-    Newsconverter.run(args, options)
+    path = args.first
+    Newsconverter.run(path, options)
   end
 end
 
