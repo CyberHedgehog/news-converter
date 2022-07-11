@@ -16,7 +16,7 @@ command :convert do |c|
   c.option '--format STRING', String, 'output format'
   c.action do |args, options|
     path = args.first
-    Newsconverter.run(path, options)
+    Newsconverter.run(path, options.format, options.output)
   end
 end
 

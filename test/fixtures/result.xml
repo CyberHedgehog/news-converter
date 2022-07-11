@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Lenta.ru : Новости</title>
+    <link>https://lenta.ru</link>
+    <description>Новости, статьи, фотографии, видео. Семь дней в неделю, 24 часа в сутки.</description>
+    <item>
+      <title>В ФРГ предупредили о локдауне в случае остановки поставок газа из России</title>
+      <link>https://lenta.ru/news/2022/06/27/frg/</link>
+      <description>
+      Глава Объединения муниципальных предприятий Ингберт Либинг предупредил, что ФРГ ожидает новый локдаун в случае остановки поставок газа из России. Он считает, что будет хуже, чем во время пандемии коронавирусной инфекции. По его словам, сокращение поставок газа уже осложняет заполнение газовых хранилищ на зиму. 
+    </description>
+      <pubDate>Mon, 27 Jun 2022 21:54:24 +0300</pubDate>
+      <dc:date>2022-06-27T21:54:24+03:00</dc:date>
+    </item>
+    <item>
+      <title>Argentina title</title>
+      <link>https://lenta.ru/news/2022/06/27/argentina/</link>
+      <description>Argentina description</description>
+      <author>Марина Совина</author>
+      <pubDate>Mon, 27 Jun 2022 21:54:09 +0300</pubDate>
+      <dc:date>2022-06-27T21:54:09+03:00</dc:date>
+    </item>
+    <item>
+      <title>Comic title</title>
+      <link>https://lenta.ru/news/2022/06/27/nepustili/</link>
+      <description>Comic description</description>
+      <author>Олег Давыдов</author>
+      <pubDate>Mon, 27 Jun 2022 14:51:00 +0300</pubDate>
+      <dc:date>2022-06-27T14:51:00+03:00</dc:date>
+    </item>
+  </channel>
+</rss>

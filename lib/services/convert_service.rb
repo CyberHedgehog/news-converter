@@ -27,7 +27,7 @@ class ConvertService
     @data = Parsers::RssParser.parse raw_data
   end
 
-  def save(path)
+  def save(path = 'json')
     data = @converter.convert(@data)
     File.write(path, data)
   end

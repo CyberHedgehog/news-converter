@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <language>ru</language>
+    <title>Lenta.ru : Новости</title>
+    <description>Новости, статьи, фотографии, видео. Семь дней в неделю, 24 часа в сутки.</description>
+    <link>https://lenta.ru</link>
+    <image>
+      <url>https://lenta.ru/images/small_logo.png</url>
+      <title>Lenta.ru</title>
+      <link>https://lenta.ru</link>
+      <width>134</width>
+      <height>22</height>
+    </image>
+    <atom:link rel="self" type="application/rss+xml" href="http://lenta.ru/rss"/>
+  <item>
+    <guid>https://lenta.ru/news/2022/06/27/frg/</guid>
+    <title>FRG title</title>
+    <link>https://lenta.ru/news/2022/06/27/frg/</link>
+    <description>FRG description</description>
+    <pubDate>Mon, 27 Jun 2022 21:54:24 +0300</pubDate>
+    <enclosure url="https://icdn.lenta.ru/assets/webpack/images/lenta_og.04ceff52.png" type="image/png" length="14407"/>
+    <category>Экономика</category>
+  </item>
+  <item>
+    <guid>https://lenta.ru/news/2022/06/27/argentina/</guid>
+    <author>Марина Совина</author>
+    <title>Argentina title</title>
+    <link>https://lenta.ru/news/2022/06/27/argentina/</link>
+    <description>Argentina description</description>
+    <pubDate>Mon, 27 Jun 2022 21:54:09 +0300</pubDate>
+    <enclosure url="https://icdn.lenta.ru/images/2022/06/27/21/20220627215155415/pic_1a9a6e4d68800b41f38a7dee8e11c342.jpg" type="image/jpeg" length="39696"/>
+    <category>Экономика</category>
+  </item>
+  <item>
+    <guid>https://lenta.ru/news/2022/06/27/nepustili/</guid>
+    <author>Олег Давыдов</author>
+    <title>Comic title</title>
+    <link>https://lenta.ru/news/2022/06/27/nepustili/</link>
+    <description>Comic description</description>
+    <pubDate>Mon, 27 Jun 2022 14:51:00 +0300</pubDate>
+    <enclosure url="https://icdn.lenta.ru/images/2022/06/27/10/20220627104622826/pic_06d40ad2706f04d7c06c7f07dbdf2ed3.jpeg" type="image/jpeg" length="89953"/>
+    <category>Интернет и СМИ</category>
+  </item>
+  </channel>
+</rss>
