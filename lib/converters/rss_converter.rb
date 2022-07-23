@@ -4,6 +4,10 @@ require 'rss'
 
 module Converters
   class RSSConverter
+    def self.can_convert?(format)
+      format == 'rss'
+    end
+
     def self.convert(data)
       rss = RSS::Maker.make('2.0') do |maker|
         maker.channel.link = data[:link]

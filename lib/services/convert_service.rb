@@ -1,21 +1,12 @@
 # frozen_string_literal: true
 
 require_relative '../parsers/rss_parser'
-require_relative '../converters/json_converter'
-require_relative '../converters/rss_converter'
-require_relative '../converters/atom_converter'
+require_relative '../converter'
 require 'open-uri'
 
 class ConvertService
   def initialize(format = 'json')
-    case format
-    when 'json'
-      @converter = Converters::JSONConverter
-    when 'rss'
-      @converter = Converters::RSSConverter
-    when 'atom'
-      @converter = Converters::AtomConverter
-    end
+    @converter = Converter.new(format)
   end
 
   def load(path)

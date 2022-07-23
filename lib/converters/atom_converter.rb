@@ -3,6 +3,10 @@ require 'rss'
 
 module Converters
   class AtomConverter
+    def self.can_convert?(format)
+      format == 'atom'
+    end
+
     def self.convert(data)
       result = RSS::Maker.make('atom') do |maker|
         maker.channel.id = data[:link]
