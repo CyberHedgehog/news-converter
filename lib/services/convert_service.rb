@@ -11,11 +11,14 @@ class ConvertService
 
   def load(path)
     if URI.parse(path).host
-      raw_data = URI.open(path).read
+      @raw_data = URI.open(path).read
     else
-      raw_data = File.read(path)
+      @raw_data = File.read(path)
     end
-    @data = Parsers::RssParser.parse raw_data
+  end
+
+  def parse
+    @data = Parsers::RssParser.parse @raw_data
   end
 
   def save(path = 'json')

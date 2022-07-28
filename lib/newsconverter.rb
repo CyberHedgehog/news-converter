@@ -9,6 +9,7 @@ module Newsconverter
   def self.run(path, format = nil, output = nil)
     converter = ConvertService.new(format)
     converter.load(path)
+    converter.parse
     converter.save(output)
   end
 end
