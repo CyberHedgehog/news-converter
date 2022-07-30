@@ -2,11 +2,13 @@
 
 require_relative '../parsers/rss_parser'
 require_relative '../converter'
+require_relative '../parser'
 require 'open-uri'
 
 class ConvertService
-  def initialize(format = 'json')
-    @converter = Converter.new(format)
+  def initialize(input_format = 'json', output_format = 'json')
+    @parser = Parser.new(input_format)
+    @converter = Converter.new(output_format)
   end
 
   def load(path)
@@ -18,21 +20,11 @@ class ConvertService
   end
 
   def parse
-    @data = Parsers::RssParser.parse @raw_data
+    @data = @parser.parse @raw_data
   end
 
   def save(path = 'json')
     data = @converter.convert(@data)
     File.write(path, data)
-  end
-
-  private
-
-  def to_json(data)
-    data.to_json
-  end
-
-  def to_rss(data)
-
   end
 end

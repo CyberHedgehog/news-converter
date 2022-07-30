@@ -4,6 +4,10 @@ require 'rss'
 
 module Parsers
   class RssParser
+    def self.can_parse?(format)
+      format == 'rss'
+    end
+
     def self.parse(data)
       parsed_data = RSS::Parser.parse(data)
       channel = {

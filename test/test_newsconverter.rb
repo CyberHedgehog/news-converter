@@ -14,7 +14,7 @@ class TestNewsconverter < Minitest::Test
   def test_convert_to_json_from_rss_file
     output_name = File.join(@output_dir, 'result.json')
 
-    Newsconverter.run('test/fixtures/rss', 'json', output_name)
+    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json')
 
     fixture_data = File.read('test/fixtures/result.json')
     result_data = File.read(output_name)
