@@ -28,7 +28,7 @@ module Parsers
           category: item.category
         }
       end
-      return channel
+      channel
     end
   end
 end

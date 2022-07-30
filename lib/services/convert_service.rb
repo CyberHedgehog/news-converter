@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../parsers/rss_parser'
 require_relative '../converter'
 require_relative '../parser'
 require 'open-uri'
@@ -12,11 +11,11 @@ class ConvertService
   end
 
   def load(path)
-    if URI.parse(path).host
-      @raw_data = URI.open(path).read
-    else
-      @raw_data = File.read(path)
-    end
+    @raw_data = if URI.parse(path).host
+                  URI.parse(path).open.read
+                else
+                  File.read(path)
+                end
   end
 
   def parse

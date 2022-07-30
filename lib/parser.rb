@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 # fronzen_string_literal: true
 
-Dir[File.dirname(__FILE__) + '/parsers/*.rb'].each {|file| require file }
+Dir["#{File.dirname(__FILE__)}/parsers/*.rb"].sort.each { |file| require file }
 
 class Parser
   def initialize(format)
     Parsers.constants.each do |parser_name|
       parser = Object.const_get "Parsers::#{parser_name}"
-      if parser.can_parse?(format)
-        @parser = parser
-      end
+      @parser = parser if parser.can_parse?(format)
     end
   end
 
