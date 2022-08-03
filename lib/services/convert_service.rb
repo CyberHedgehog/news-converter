@@ -22,6 +22,22 @@ class ConvertService
     @data = @parser.parse @raw_data
   end
 
+  def filter(author)
+    @data[:items].filter! { |item| item[:author] == author }
+  end
+
+  def sort(direction)
+    @data[:items].sort! do |a, b|
+      a_date = a[:pubDate]
+      b_date = b[:pubDate]
+      if direction == 'desc'
+        b_date <=> a_date
+      else
+        a_date <=> b_date
+      end
+    end
+  end
+
   def save(path = 'json')
     data = @converter.convert(@data)
     File.write(path, data)

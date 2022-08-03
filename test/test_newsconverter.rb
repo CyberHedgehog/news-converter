@@ -21,4 +21,26 @@ class TestNewsconverter < Minitest::Test
 
     assert_equal fixture_data, result_data
   end
+
+  def test_filter
+    output_name = File.join(@output_dir, 'result.json')
+
+    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', 'Олег Давыдов')
+
+    fixture_data = File.read('test/fixtures/result_filtered.json')
+    result_data = File.read(output_name)
+
+    assert_equal fixture_data, result_data
+  end
+
+  def test_sort
+    output_name = File.join(@output_dir, 'result.json')
+
+    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', nil, 'asc')
+
+    fixture_data = File.read('test/fixtures/result_sorted.json')
+    result_data = File.read(output_name)
+
+    assert_equal fixture_data, result_data
+  end
 end
