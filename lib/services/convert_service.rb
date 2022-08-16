@@ -38,6 +38,10 @@ class ConvertService
     end
   end
 
+  def limit(number)
+    @data[:items] = @data[:items].take number
+  end
+
   def save(path = 'json')
     data = @converter.convert(@data)
     File.write(path, data)

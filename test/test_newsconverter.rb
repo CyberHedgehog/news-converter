@@ -43,4 +43,15 @@ class TestNewsconverter < Minitest::Test
 
     assert_equal fixture_data, result_data
   end
+
+  def test_limit
+    output_name = File.join(@output_dir, 'result.json')
+
+    limit = 2
+    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', nil, 'asc', limit)
+
+    result_data = File.read(output_name)
+    result = JSON.parse(result_data)
+    assert_equal result['items'].length, limit
+  end
 end
