@@ -3,7 +3,7 @@
 
 require 'rubygems'
 require 'commander/import'
-require 'newsconverter'
+require_relative '../lib/newsconverter'
 
 program :name, 'news-converter'
 program :version, '0.0.1'

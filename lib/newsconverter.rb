@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'newsconverter/version'
 require_relative 'services/convert_service'
 
 module Newsconverter
