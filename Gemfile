@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'rake'
 gem 'commander'
 gem 'minitest'
 gem 'rubocop'
+gem 'rss'

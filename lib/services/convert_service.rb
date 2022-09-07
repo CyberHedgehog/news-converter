@@ -10,8 +10,10 @@ class ConvertService
     @converter = Converter.new(output_format)
   end
 
-  def load(path)
-    @raw_data = if URI.parse(path).host
+  def load(path = nil)
+    @raw_data = if !$stdin.tty?
+                  $stdin.read.lines.map(&:strip).join
+                elsif URI.parse(path).host
                   URI.parse(path).open.read
                 else
                   File.read(path)

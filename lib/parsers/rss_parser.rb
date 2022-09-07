@@ -18,13 +18,13 @@ module Parsers
       }
       parsed_data.items.each do |item|
         channel[:items] << {
-          guid: item.guid.content,
+          guid: item.guid&.content,
           title: item.title,
           link: item.link,
           description: item.description,
           author: item.author,
           pubDate: item.pubDate,
-          enclosure: item.enclosure.url,
+          enclosure: item.enclosure&.url,
           category: item.category
         }
       end

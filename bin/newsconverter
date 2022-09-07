@@ -12,12 +12,14 @@ program :description, 'Parsig news'
 command :convert do |c|
   c.syntax = 'syntax'
   c.description = 'Description'
-  c.option '--input STRING', String, 'input target'
-  c.option '--output STRING', String, 'output file'
-  c.option '--format STRING', String, 'output format'
+  c.option '--input STRING', String, 'input format'
+  c.option '--output STRING', String, 'output format'
+  c.option '--sort STRING', String, 'sort direction'
+  c.option '--filter STRING', String, 'filter by author'
+  c.option '--limit NUMBER', Integer, 'limit number'
   c.action do |args, options|
-    path = args.first
-    Newsconverter.run(path, options.format, options.output)
+    input_path, output_path = args.size == 2 ? args : [nil, *args]
+    Newsconverter.run(input_path, output_path, options.__hash__)
   end
 end
 

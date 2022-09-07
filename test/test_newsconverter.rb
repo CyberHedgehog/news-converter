@@ -10,7 +10,8 @@ class TestNewsconverter < Minitest::Test
   def test_convert_to_json_from_rss_file
     output_name = File.join(@output_dir, 'result.json')
 
-    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json')
+    options = { input: 'rss', output: 'json' }
+    Newsconverter.run('test/fixtures/rss', output_name, options)
 
     fixture_data = File.read('test/fixtures/result.json')
     result_data = File.read(output_name)
@@ -21,7 +22,13 @@ class TestNewsconverter < Minitest::Test
   def test_filter
     output_name = File.join(@output_dir, 'result.json')
 
-    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', 'Олег Давыдов')
+    options = {
+      input: 'rss',
+      output: 'json',
+      author: 'Олег Давыдов'
+    }
+
+    Newsconverter.run('test/fixtures/rss', output_name, options)
 
     fixture_data = File.read('test/fixtures/result_filtered.json')
     result_data = File.read(output_name)
@@ -32,7 +39,13 @@ class TestNewsconverter < Minitest::Test
   def test_sort
     output_name = File.join(@output_dir, 'result.json')
 
-    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', nil, 'asc')
+    options = {
+      input: 'rss',
+      output: 'json',
+      sort: 'asc'
+    }
+
+    Newsconverter.run('test/fixtures/rss', output_name, options)
 
     fixture_data = File.read('test/fixtures/result_sorted.json')
     result_data = File.read(output_name)
@@ -43,11 +56,16 @@ class TestNewsconverter < Minitest::Test
   def test_limit
     output_name = File.join(@output_dir, 'result.json')
 
-    limit = 2
-    Newsconverter.run('test/fixtures/rss', output_name, 'rss', 'json', nil, 'asc', limit)
+    options = {
+      input: 'rss',
+      output: 'json',
+      sort: 'asc',
+      limit: 2
+    }
+    Newsconverter.run('test/fixtures/rss', output_name, options)
 
     result_data = File.read(output_name)
     result = JSON.parse(result_data)
-    assert_equal result['items'].length, limit
+    assert_equal result['items'].length, options[:limit]
   end
 end
