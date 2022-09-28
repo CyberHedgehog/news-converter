@@ -68,4 +68,30 @@ class TestNewsconverter < Minitest::Test
     result = JSON.parse(result_data)
     assert_equal result['items'].length, options[:limit]
   end
+
+  def test_download_from_web
+    body = File.read('test/fixtures/rss')
+    stub_request(:get, 'http://www.testnews.com/')
+      .with(
+        headers: {
+          Accept: '*/*',
+          'Accept-Encoding': 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+          'User-Agent': 'Ruby'
+        }
+      )
+      .to_return(status: 200, body: body)
+
+    output_name = File.join(@output_dir, 'result.json')
+
+    options = {
+      input: 'rss',
+      output: 'json'
+    }
+    Newsconverter.run('http://www.testnews.com', output_name, options)
+
+    fixture_data = File.read('test/fixtures/result.json')
+    result_data = File.read(output_name)
+
+    assert_equal fixture_data, result_data
+  end
 end
